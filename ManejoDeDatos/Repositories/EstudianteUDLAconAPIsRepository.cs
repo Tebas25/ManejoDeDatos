@@ -29,15 +29,15 @@ namespace ManejoDeDatos.Repositories
             throw new NotImplementedException();
         }
 
-        public async IEnumerable<EstudianteUDLA> GetListEstudianteUDLA()
+        public IEnumerable<EstudianteUDLA> GetListEstudianteUDLA()
         {
-            using (HttpClient httpclient = new HttpClient())
-            {
-                var response = await httpclient.GetAsync(_urlEndpoint);
-                var json_data = response.Content.ReadAsStringAsync().Result;
-                List<EstudianteAPI> estudianteAPI = JsonConvert.DeserializeObject<List<EstudianteAPI>>(json_data);
-            }
-
+            throw new NotImplementedException();
+            //using (HttpClient httpclient = new HttpClient())
+            //{
+            //    var response = await httpclient.GetAsync(_urlEndpoint);
+            //    var json_data = response.Content.ReadAsStringAsync().Result;
+            //    List<EstudianteAPI> estudianteAPI = JsonConvert.DeserializeObject<List<EstudianteAPI>>(json_data);
+            //}
         }
 
         public bool UpdateEstudianteUDLA(EstudianteUDLA estudiante)

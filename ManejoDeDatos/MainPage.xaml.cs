@@ -1,6 +1,7 @@
 ﻿using ManejoDeDatos.Interfaces;
 using ManejoDeDatos.Models;
 using ManejoDeDatos.Repositories;
+using System.Collections.ObjectModel;
 
 namespace ManejoDeDatos
 {
@@ -8,12 +9,13 @@ namespace ManejoDeDatos
     {
         IEstudianteUDLARepository _estudianteUDLARepository;
         EstudianteUDLA estudiante = new EstudianteUDLA();
+        ObservableCollection<EstudianteUDLA> _estudiantes = new ObservableCollection<EstudianteUDLA>();
         public MainPage()
         {
-            _estudianteUDLARepository = new EstudianteUDLAPorArchivosRepository();
+            _estudianteUDLARepository = new EstudianteUDLASQLiteRepository();
             InitializeComponent();
 
-            estudiante = _estudianteUDLARepository.GetEstudianteUDLA(1);
+            var estudiantesUDLA = _estudianteUDLARepository.GetListEstudianteUDLA().ToList();
             BindingContext = estudiante;
         }
 
